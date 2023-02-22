@@ -5,9 +5,12 @@ namespace AddressBook
     {
         public static void Main(string[] args) 
         {
-            Console.WriteLine("Welcome to Address Book");
+             Console.WriteLine("Welcome to Address Book");
+             Addressbook book= new Addressbook();
+             book.takeinput();
+             book.View();
+             
 
-        
         }     
     
     }
