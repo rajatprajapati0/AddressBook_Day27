@@ -1,6 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics.Metrics;
 using System.Linq;
+using System.Net;
+using System.Numerics;
+using System.Reflection.Emit;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -8,15 +12,17 @@ namespace AddressBook
 {
     public  class Addressbook
     {
-        Contact contact;
+      List <Contact>Listcontact;
       public  Addressbook()
       { 
-        contact= new Contact();
-        
+        Listcontact= new List<Contact>();
+       
       }
 
-        public void takeinput( ) 
-        {
+        public Contact takeinput( ) 
+        { 
+           Contact contact= new Contact();
+
             Console.WriteLine("Enter your first Name ");
             contact.FirstName = Console.ReadLine();
             Console.WriteLine("Enter your Last Name");
@@ -35,11 +41,34 @@ namespace AddressBook
             contact.email = Console.ReadLine();
             Console.WriteLine("enter your country");
             contact.country = Console.ReadLine();
+            Listcontact.Add(contact);
+            return contact;
         }
         public void View( )
         {
-          Console.WriteLine(contact.ToString());
-        
+            if (Listcontact.Count <=0)
+            {
+                Console.WriteLine("book is empty");
+            }
+            else
+            {
+                foreach (var contacts in Listcontact)
+                {
+                        Console.WriteLine
+                        (
+                        @$"
+                         Name   :{contacts.FirstName} {contacts.LastName}
+                         Address:{contacts.Address}
+                         ZipCod :{contacts.zipcode}
+                         City   :{contacts.city} 
+                         State  :{contacts.state} 
+                         Country:{contacts.country}
+                         Phone  :{contacts.phone}
+                         Email  :{contacts.email}
+
+                        ");
+                }  
+            }
         }
 
 

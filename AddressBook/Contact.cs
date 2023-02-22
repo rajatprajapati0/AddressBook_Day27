@@ -21,20 +21,6 @@ namespace AddressBook
 
 
 
-        public override string ToString()
-        {
-            return 
-                @$"
-                  Name   :{FirstName} {LastName}
-                  Address:{Address}
-                  ZipCod :{zipcode}
-                  City   :{city} 
-                  State  :{state} 
-                  Country:{country}
-                  Phone  :{phone}
-                  Email  :{email}
-
-                ";
-        }
+       
     }
 }
